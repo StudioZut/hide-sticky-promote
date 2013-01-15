@@ -1,0 +1,37 @@
+<?php
+/**
+ * Remove sticky/promote entirely from add and edit content type forms.
+ *
+ * Implements hook_form_FORM_ID_alter().
+ */
+function hide_sticky_promote_form_node_type_form_alter(&$form, &$form_state, $form_id) {
+  // Remove sticky/promote entirely from add and edit content type forms.
+  $options = array('promote', 'sticky');
+  foreach ($options as $key) {
+    unset($form['workflow']['node_options']['#options'][$key]);    
+  }
+}
+
+/**
+ * Remove sticky/promote entirely from node/X/edit & node/X/add forms.
+ * 
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function hide_sticky_promote_form_node_form_alter(&$form, &$form_state, $form_id) {
+  $options = array('promote', 'sticky');
+  foreach ($options as $key) {
+    $form['options'][$key]['#access'] = FALSE;
+  }
+}
+
+/**
+ * Remove some sticky/promote update options on admin/content.
+ *
+ * Implements hook_form_FORM_ID_alter().
+ */
+function hide_sticky_promote_form_node_admin_content_alter(&$form, &$form_state, $form_id) {
+  $options = array('demote', 'promote', 'sticky', 'unsticky', );
+  foreach ($options as $key) {
+    unset($form['admin']['options']['operation']['#options'][$key]);
+  }
+}

@@ -1,0 +1,3 @@
+name = Hide Sticky and Promote
+description = This module hides the "promote to front page" and "sticky" checkboxes when creating and editing content. This is to avoid confusion for our users since we do not use those options.
+core = 7.x
