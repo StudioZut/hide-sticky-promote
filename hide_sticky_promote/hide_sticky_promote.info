@@ -2,4 +2,4 @@ name = Hide Sticky and Promote
 description = This module hides the "promote to front page" and "sticky" checkboxes when creating and editing content. This is to avoid confusion for our users since we do not use those options.
 version = "7.x-1.0"
 core = "7.x"
-package = GW Libraries
+package = "my awesome shop name goes here"
