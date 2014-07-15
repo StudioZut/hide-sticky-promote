@@ -13,4 +13,4 @@ Permissions allow selected user roles to override the change and continue to use
 This was designed to simplify content creation and editing for content users of sites that are not using these features, especially for content editors with limited experience with a CMS.
 
 
-Now includes permissions to let selected roles still use "sticky" and "promote" options (thanks to Roger Codina and his contribution: https://github.com/rogercodina/hide-sticky-promote )
+(thanks to Roger Codina and his fork: https://github.com/rogercodina/hide-sticky-promote )
