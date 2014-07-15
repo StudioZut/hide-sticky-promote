@@ -1,5 +1,5 @@
 name = Hide Sticky and Promote
 description = This module hides the "promote to front page" and "sticky" checkboxes when creating and editing content. This is to avoid confusion for our content editors since we do not use those options.
-version = "7.x-1.0"
+version = "7.x-1.0.1"
 core = "7.x"
-package = "my awesome shop name goes here"
+package = "my awesome shop name goes here, or you can group this with Administration"
