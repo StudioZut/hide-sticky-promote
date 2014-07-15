@@ -1,4 +1,20 @@
 <?php
+
+/**
+ * Defines a new permission
+ *
+ * Implements hook_permission().
+ */
+function hide_sticky_promote_permission() {
+  return array(
+    'sticky and promote' => array(
+      'title' => t('Usage of sticky and promoted options'),
+      'description' => t('Usage of "Sticky at top of lists" and "Promoted to front page" options'),
+      'restrict access' => TRUE
+    ),
+  );
+}
+
 /**
  * Remove sticky/promote entirely from add and edit content type forms.
  *
@@ -6,9 +22,13 @@
  */
 function hide_sticky_promote_form_node_type_form_alter(&$form, &$form_state, $form_id) {
   // Remove sticky/promote entirely from add and edit content type forms.
-  $options = array('promote', 'sticky');
-  foreach ($options as $key) {
-    unset($form['workflow']['node_options']['#options'][$key]);    
+  // check permissions first 
+  global $user;
+  if (!user_access('sticky and promote')) {
+    $options = array('promote', 'sticky');
+    foreach ($options as $key) {
+      unset($form['workflow']['node_options']['#options'][$key]);    
+    }
   }
 }
 
@@ -18,9 +38,13 @@ function hide_sticky_promote_form_node_type_form_alter(&$form, &$form_state, $fo
  * Implements hook_form_BASE_FORM_ID_alter().
  */
 function hide_sticky_promote_form_node_form_alter(&$form, &$form_state, $form_id) {
-  $options = array('promote', 'sticky');
-  foreach ($options as $key) {
-    $form['options'][$key]['#access'] = FALSE;
+  // check permissions first 
+  global $user;
+  if (!user_access('sticky and promote')) {
+    $options = array('promote', 'sticky');
+    foreach ($options as $key) {
+      $form['options'][$key]['#access'] = FALSE;
+    }
   }
 }
 
@@ -30,8 +54,29 @@ function hide_sticky_promote_form_node_form_alter(&$form, &$form_state, $form_id
  * Implements hook_form_FORM_ID_alter().
  */
 function hide_sticky_promote_form_node_admin_content_alter(&$form, &$form_state, $form_id) {
-  $options = array('demote', 'promote', 'sticky', 'unsticky', );
-  foreach ($options as $key) {
-    unset($form['admin']['options']['operation']['#options'][$key]);
+  // check permissions first 
+  global $user;
+  if (!user_access('sticky and promote')) {
+    $options = array('demote', 'promote', 'sticky', 'unsticky', );
+    foreach ($options as $key) {
+      unset($form['admin']['options']['operation']['#options'][$key]);
+    }
+  }
+}
+
+/**
+ * Some help for users
+ *
+ * Implements hook_help().
+ */
+function hide_sticky_promote_help($path, $arg) {
+  switch($path){
+    case 'admin/setting/hide_sticky_promote':
+      return 'To setup this module just go to Permision page (admin/people/permissions) and assign permission "Usage of sticky and promoted options" to roles which can use these options';
+      break;
+    case 'admin/help#hide_sticky_promote'; 
+      $helpTxt='<p>To setup this module just go to Permision page (admin/people/permissions) and assign permission "Usage of sticky and promoted options" to roles which can use these options</p>';
+      return $helpTxt;    
+    break;
   }
 }
