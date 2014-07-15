@@ -8,8 +8,8 @@
 function hide_sticky_promote_permission() {
   return array(
     'sticky and promote' => array(
-      'title' => t('Usage of sticky and promoted options'),
-      'description' => t('Usage of "Sticky at top of lists" and "Promoted to front page" options'),
+      'title' => t('Use sticky and promoted options'),
+      'description' => t('Allows use of the "Sticky at top of lists" and "Promoted to front page" options'),
       'restrict access' => TRUE
     ),
   );
@@ -72,10 +72,10 @@ function hide_sticky_promote_form_node_admin_content_alter(&$form, &$form_state,
 function hide_sticky_promote_help($path, $arg) {
   switch($path){
     case 'admin/setting/hide_sticky_promote':
-      return 'To setup this module just go to Permision page (admin/people/permissions) and assign permission "Usage of sticky and promoted options" to roles which can use these options';
+      return "Once enabled this module removes the 'sticky' and 'promote to front page' options from content creation/editing sections. Under Permissions you can allow user roles to override the default and use the 'sticky' and 'promote to front page' options (admin/people/permissions)";
       break;
     case 'admin/help#hide_sticky_promote'; 
-      $helpTxt='<p>To setup this module just go to Permision page (admin/people/permissions) and assign permission "Usage of sticky and promoted options" to roles which can use these options</p>';
+      $helpTxt="<p>Once enabled this module removes the 'sticky' and 'promote to front page' options from content creation/editing sections. Under Permissions you can allow user roles to override the default and use the 'sticky' and 'promote to front page' options (admin/people/permissions)</p>";
       return $helpTxt;    
     break;
   }
