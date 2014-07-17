@@ -1,4 +1,7 @@
 <?php
+/**
+ * Drupal module file: Hide Sticky Promote.
+ */
 
 /**
  * Defines a new permission.
