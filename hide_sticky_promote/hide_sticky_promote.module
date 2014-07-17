@@ -23,7 +23,6 @@ function hide_sticky_promote_permission() {
 function hide_sticky_promote_form_node_type_form_alter(&$form, &$form_state, $form_id) {
   // Remove sticky/promote entirely from add and edit content type forms.
   // check permissions first 
-  global $user;
   if (!user_access('sticky and promote')) {
     $options = array('promote', 'sticky');
     foreach ($options as $key) {
@@ -39,7 +38,6 @@ function hide_sticky_promote_form_node_type_form_alter(&$form, &$form_state, $fo
  */
 function hide_sticky_promote_form_node_form_alter(&$form, &$form_state, $form_id) {
   // check permissions first 
-  global $user;
   if (!user_access('sticky and promote')) {
     $options = array('promote', 'sticky');
     foreach ($options as $key) {
@@ -55,7 +53,6 @@ function hide_sticky_promote_form_node_form_alter(&$form, &$form_state, $form_id
  */
 function hide_sticky_promote_form_node_admin_content_alter(&$form, &$form_state, $form_id) {
   // check permissions first 
-  global $user;
   if (!user_access('sticky and promote')) {
     $options = array('demote', 'promote', 'sticky', 'unsticky', );
     foreach ($options as $key) {
