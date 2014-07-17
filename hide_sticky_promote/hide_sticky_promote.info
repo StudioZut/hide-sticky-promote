@@ -1,6 +1,4 @@
 name = Hide Sticky and Promote
 description = This module removes the "promote to front page" and "sticky" checkboxes when creating and editing content. Permissions can be set for user roles to restore the checkboxes and use the "sticky" and "promote" options when creating or editing content.
-version = "7.x-1.x"
 core = "7.x"
 package = "Administration"
-

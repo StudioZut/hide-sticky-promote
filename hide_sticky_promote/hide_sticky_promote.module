@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Defines a new permission
+ * Defines a new permission.
  *
  * Implements hook_permission().
  */
@@ -62,7 +61,7 @@ function hide_sticky_promote_form_node_admin_content_alter(&$form, &$form_state,
 }
 
 /**
- * Some help for users
+ * Some help for users.
  *
  * Implements hook_help().
  */
