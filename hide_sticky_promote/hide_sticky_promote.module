@@ -70,12 +70,10 @@ function hide_sticky_promote_help($path, $arg) {
   switch ($path) {
     case 'admin/setting/hide_sticky_promote':
       return t("Once enabled this module removes the 'sticky' and 'promote to front page' options from content creation/editing sections. Under Permissions you can allow user roles to override the default and use the 'sticky' and 'promote to front page' options /admin/people/permissions");
-    break;
 
-    case 'admin/help#hide_sticky_promote': 
+    case 'admin/help#hide_sticky_promote':
       $help_txt = t("Once enabled this module removes the 'sticky' and 'promote to front page' options from content creation/editing sections. Under Permissions you can allow user roles to override the default and use the 'sticky' and 'promote to front page' options /admin/people/permissions");
-    return $help_txt;
-    break;
+      return $help_txt;
 
   }
 }
