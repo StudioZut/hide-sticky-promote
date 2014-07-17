@@ -5,7 +5,6 @@
  *
  * Implements hook_permission().
  */
-
 function hide_sticky_promote_permission() {
   return array(
     'sticky and promote' => array(
@@ -21,14 +20,13 @@ function hide_sticky_promote_permission() {
  *
  * Implements hook_form_FORM_ID_alter().
  */
-
 function hide_sticky_promote_form_node_type_form_alter(&$form, &$form_state, $form_id) {
   // Remove sticky/promote entirely from add and edit content type forms.
   // Check permissions first.
   if (!user_access('sticky and promote')) {
     $options = array('promote', 'sticky');
     foreach ($options as $key) {
-    unset($form['workflow']['node_options']['#options'][$key]);
+      unset($form['workflow']['node_options']['#options'][$key]);
     }
   }
 }
@@ -38,7 +36,6 @@ function hide_sticky_promote_form_node_type_form_alter(&$form, &$form_state, $fo
  *
  * Implements hook_form_BASE_FORM_ID_alter().
  */
-
 function hide_sticky_promote_form_node_form_alter(&$form, &$form_state, $form_id) {
   // Check permissions first.
   if (!user_access('sticky and promote')) {
@@ -54,7 +51,6 @@ function hide_sticky_promote_form_node_form_alter(&$form, &$form_state, $form_id
  *
  * Implements hook_form_FORM_ID_alter().
  */
-
 function hide_sticky_promote_form_node_admin_content_alter(&$form, &$form_state, $form_id) {
   // Check permissions first.
   if (!user_access('sticky and promote')) {
@@ -70,15 +66,14 @@ function hide_sticky_promote_form_node_admin_content_alter(&$form, &$form_state,
  *
  * Implements hook_help().
  */
-
 function hide_sticky_promote_help($path, $arg) {
   switch ($path) {
     case 'admin/setting/hide_sticky_promote':
-    return t("Once enabled this module removes the 'sticky' and 'promote to front page' options from content creation/editing sections. Under Permissions you can allow user roles to override the default and use the 'sticky' and 'promote to front page' options /admin/people/permissions");
+      return t("Once enabled this module removes the 'sticky' and 'promote to front page' options from content creation/editing sections. Under Permissions you can allow user roles to override the default and use the 'sticky' and 'promote to front page' options /admin/people/permissions");
     break;
-      
+
     case 'admin/help#hide_sticky_promote': 
-    $help_txt = t("Once enabled this module removes the 'sticky' and 'promote to front page' options from content creation/editing sections. Under Permissions you can allow user roles to override the default and use the 'sticky' and 'promote to front page' options /admin/people/permissions");
+      $help_txt = t("Once enabled this module removes the 'sticky' and 'promote to front page' options from content creation/editing sections. Under Permissions you can allow user roles to override the default and use the 'sticky' and 'promote to front page' options /admin/people/permissions");
     return $help_txt;
     break;
 
