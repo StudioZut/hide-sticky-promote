@@ -16,6 +16,10 @@ from the 'permissions' link next to the module name in the modules list.
 Note that the module does not alter your sites functionality when it 
 comes to 'sticky' and 'promoted' content: it only removes the option 
 to make content sticky/unsticky or promoted/demoted.
+
+Shares some functionality with Promote Disable 
+https://www.drupal.org/project/promote_disable but also hides 'sticky' option 
+as well as being controlled by permissions (vs content type).
  
 
 Developer
